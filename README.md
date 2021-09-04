@@ -1,0 +1,1 @@
+# SME-Secretaria-Municipal-de-Educa-o
