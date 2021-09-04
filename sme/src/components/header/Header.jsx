@@ -3,7 +3,7 @@ import { HeaderContainer } from "./styles"
 const Header = () => {
     return (
         <HeaderContainer>
-            <h1>Teste de ReactJS - AMcomE</h1>
+            <h2>Teste de ReactJS - AMcomE</h2>
         </HeaderContainer>
     )
 }
