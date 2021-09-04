@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/'
