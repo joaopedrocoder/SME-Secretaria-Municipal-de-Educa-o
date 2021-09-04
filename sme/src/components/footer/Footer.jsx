@@ -1,8 +1,10 @@
+import { FooterContainer } from "./style"
+
 const Footer = () => {
     return (
-        <div>
-            Footer
-        </div>
+        <FooterContainer>
+            <h3>Secretaria Municipal de Educação - SME</h3>
+        </FooterContainer>
     )
 }
 
