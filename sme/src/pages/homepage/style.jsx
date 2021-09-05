@@ -4,6 +4,6 @@ const ContentMain = styled.main`
     width: 60vw;
     margin: 0 auto;
     height: 82vh;
-    padding: 50px 0;
+    padding: 80px 0;
 `
 export {ContentMain}
