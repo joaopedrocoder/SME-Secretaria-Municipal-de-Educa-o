@@ -4,7 +4,7 @@ import { BASE_URL } from "../constants/urls";
 export const getDiretorias = (setData) =>{
     axios.get(`${BASE_URL}/diretorias/`)
     .then((res)=>{
-        setData(res)
+        setData(res.data.results)
     })
     .catch((error)=>{
         console.error(error)
