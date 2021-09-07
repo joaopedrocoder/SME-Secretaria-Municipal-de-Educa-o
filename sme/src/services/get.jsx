@@ -14,7 +14,7 @@ export const getDiretorias = (setData) =>{
 export const getTipoEscola = (setData) =>{
     axios.get(`${BASE_URL}/smeescolas/`)
     .then((res)=>{
-        setData(res)
+        setData(res.data.results)
     })
     .catch((error)=>{
         console.error(error)
@@ -22,11 +22,13 @@ export const getTipoEscola = (setData) =>{
 }
 
 export const getTipoEscolaPelaDiretoria = (setData, diretoria) =>{
-    axios.get(`${BASE_URL}/smeescolas/${diretoria}`)
-    .then((res)=>{
-        setData(res)
-    })
-    .catch((error)=>{
-        console.error(error)
-    })
+    if(diretoria){
+        axios.get(`${BASE_URL}/smeescolas/${diretoria}`)
+        .then((res)=>{
+            setData(res.data.results)
+        })
+        .catch((error)=>{
+            console.error(error)
+        })
+    }    
 }

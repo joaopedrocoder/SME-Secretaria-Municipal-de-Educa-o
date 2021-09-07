@@ -8,39 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const arrayMock = [
-    {
-        "tipoesc": "EMEF        ",
-        "faixa": "1 a 250 estudantes",
-        "count": 2
-    },
-    {
-        "tipoesc": "EMEFM       ",
-        "faixa": "1001 a 1500 estudantes",
-        "count": 4
-    },
-    {
-        "tipoesc": "ESP CONV    ",
-        "faixa": "1 a 250 estudantes",
-        "count": 26
-    },
-    {
-        "tipoesc": "EMEFM       ",
-        "faixa": "1501 a 2000 estudantes",
-        "count": 1
-    },
-    {
-        "tipoesc": "MOVA        ",
-        "faixa": "1 a 250 estudantes",
-        "count": 290
-    },
-    {
-        "tipoesc": "CIEJA       ",
-        "faixa": "501 a 1000 estudantes",
-        "count": 10
-    }
-]
-
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -51,27 +18,64 @@ const useStyles = makeStyles({
     }
 });
   
-function createData(name, faixa1, faixa2, faixa3, faixa4, faixa5, faixa6, faixa7, faixa8) {
-    return { name, faixa1, faixa2, faixa3, faixa4, faixa5, faixa6, faixa7, faixa8 };
-}
-  
-// const rows = [
-//     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//     createData('Eclair', 262, 16.0, 24, 6.0),
-//     createData('Cupcake', 305, 3.7, 67, 4.3),
-//     createData('Gingerbread', 356, 16.0, 49, 3.9),
-// ];
 
-const rows = arrayMock.map((row)=>{
-    return (
-        createData(row.tipoesc)
-    )
-})
-  
-
-const TableComponent = () => {
+const TableComponent = (props) => {
     const classes = useStyles()
+
+    const rows = props.dadosDaTabela.map(({tipoesc, faixas}, index)=>{
+        const count = []
+        count.length = 8
+        
+        for(let item of faixas){
+            switch (item.faixa) {
+                case "Sem estudantes cadastrados":
+                    count[0] = (item.count)
+                    break;
+                case "1 a 250 estudantes":
+                    count[1] = (item.count)
+                    break;
+                case "251 a 500 estudantes":
+                    count[2] = (item.count)
+                    break;
+                case "501 a 1000 estudantes":
+                    count[3] = (item.count)
+                    break;
+                case "1001 a 1500 estudantes":
+                    count[4] = (item.count)
+                    break;
+                case "1501 a 2000 estudantes":
+                    count[5] = (item.count)
+                    break;
+                case "2001 a 2500 estudantes":
+                    count[6] = (item.count)
+                    break;
+                case "Mais de 2500 estudantes":
+                    count[7] = (item.count)
+                    break;
+                default:
+                    break;
+            } 
+        }
+       
+        return(
+            <TableRow key={index}>
+                <TableCell component="th" scope="row">
+                    {tipoesc}
+                </TableCell>
+                
+                <TableCell align="center">{count[0] ? count[0]:0}</TableCell>
+                <TableCell align="center">{count[1] ? count[1]:0}</TableCell>
+                <TableCell align="center">{count[2] ? count[2]:0}</TableCell>
+                <TableCell align="center">{count[3] ? count[3]:0}</TableCell>
+                <TableCell align="center">{count[4] ? count[4]:0}</TableCell>
+                <TableCell align="center">{count[5] ? count[5]:0}</TableCell>
+                <TableCell align="center">{count[6] ? count[6]:0}</TableCell>
+                <TableCell align="center">{count[7] ? count[7]:0}</TableCell>
+            </TableRow>
+        )
+    })
+
+    console.log(props.dadosDaTabela)
 
     return (
         <TableContainer component={Paper}>
@@ -91,21 +95,7 @@ const TableComponent = () => {
                 </TableHead>
 
                 <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">
-                            {row.name}
-                        </TableCell>
-                        <TableCell align="center">{row.faixa1}</TableCell>
-                        <TableCell align="center">{row.faixa2}</TableCell>
-                        <TableCell align="center">{row.faixa3}</TableCell>
-                        <TableCell align="center">{row.faixa4}</TableCell>
-                        <TableCell align="center">{row.faixa5}</TableCell>
-                        <TableCell align="center">{row.faixa6}</TableCell>
-                        <TableCell align="center">{row.faixa7}</TableCell>
-                        <TableCell align="center">{row.faixa8}</TableCell>
-                        </TableRow>
-                    ))}
+                    {rows}
                 </TableBody>
             </Table>
         </TableContainer>

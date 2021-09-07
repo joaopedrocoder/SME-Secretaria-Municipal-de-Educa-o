@@ -15,6 +15,12 @@ const useStyles = makeStyles(() => ({
 const SelectComponent = (props) => {
     const classes = useStyles();
 
+    const opcoes = (props.options ? props.options.map((option, i)=>{
+        return(
+            <MenuItem key={i} value={option.dre}>{option.dre}</MenuItem>
+        )
+    }):'')
+
     return (
         <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">Diretoria</InputLabel>
@@ -28,11 +34,7 @@ const SelectComponent = (props) => {
                 <MenuItem value="">
                     <em>Selecionar</em>
                 </MenuItem>
-                {props.options ? props.options.map((option, i)=>{
-                    return(
-                        <MenuItem key={i} value={option.dre}>{option.dre}</MenuItem>
-                    )
-                }):<></>}
+                {opcoes}
             </Select>
         </FormControl>
     )
