@@ -5,5 +5,9 @@ const ContentMain = styled.main`
     margin: 0 auto;
     min-height: 82vh;
     padding: 80px 0;
+
+    h1{
+        color: #757575;
+    }
 `
 export {ContentMain}
