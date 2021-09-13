@@ -30,7 +30,7 @@ A aplicação consiste uma tabela que mostrará dados vindos da API de acordo co
 ## Bibliotecas
 * Styled-Components
 * Axios
-* 
+* Material-ui
 
 <br><br/>
 ## Como executar o projeto
