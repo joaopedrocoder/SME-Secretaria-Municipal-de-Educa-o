@@ -21,6 +21,18 @@ A aplicação consiste uma tabela que mostrará dados vindos da API de acordo co
 ![image](https://user-images.githubusercontent.com/83232317/132604675-0490a092-56be-4765-ba0a-92ea7672bf1f.png)
 
 <br><br/>
+## Tecnologias
+* React
+
+## Linguagem
+* Javascript
+
+## Bibliotecas
+* Styled-Components
+* Axios
+* 
+
+<br><br/>
 ## Como executar o projeto
 Pré-requisitos: npm / yarn
 
